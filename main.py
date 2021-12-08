@@ -89,7 +89,7 @@ def classify(df):
             pre2.append(tp2/(tp2+fp2))
             rec1.append(tp1/(tp1+fn1))
             rec2.append(tp2/(tp2+fn2))
-            #print(acc1,acc2)
+            print(acc1,acc2)
 
 #Function that performs MiniBatch K-means
 def cluster(df):
@@ -118,7 +118,7 @@ def cluster(df):
 def p(b,id):
     df = pre_process(b)
     cluster(df)
-    #classify(df)
+    classify(df)
 
 query = tweetdf3.writeStream.foreachBatch(p).start()
 query.awaitTermination()
